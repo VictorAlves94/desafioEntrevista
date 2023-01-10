@@ -1,5 +1,8 @@
 package com.exercicioentrevista.exercicio2api.model;
 
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Endereco {
     private String logadouro;
 

@@ -2,29 +2,26 @@ package com.exercicioentrevista.exercicio2api.resource;
 
 import com.exercicioentrevista.exercicio2api.model.Pessoa;
 import com.exercicioentrevista.exercicio2api.repository.PessoaRepository;
-import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/pessoa")
-
+@RequestMapping("/pessoas")
 public class PessoaResource {
-@Autowired
+    @Autowired
     private PessoaRepository pessoaRepository;
 
     @GetMapping
-    public List<Pessoa>listar(){
+    public List<Pessoa> listar(){
         return pessoaRepository.findAll();
     }
 //    @PostMapping
-//    public void cadastrarPessoa(){
+//    public void cadastrarPessoa(RequestBody) {
 //
 //        pessoaRepository.save(Entity);
 //
 //    }
 
-
-}
+    }
