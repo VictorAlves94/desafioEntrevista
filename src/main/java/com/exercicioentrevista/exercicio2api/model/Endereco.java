@@ -5,6 +5,9 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class Endereco {
     private String logadouro;
+    private String cep;
+    private String numero;
+    private String cidade;
 
 
     public String getLogadouro() {
@@ -15,7 +18,6 @@ public class Endereco {
         this.logadouro = logadouro;
     }
 
-    private String cep;
 
     public String getCep() {
         return cep;
@@ -24,7 +26,7 @@ public class Endereco {
     public void setCep(String cep) {
         this.cep = cep;
     }
-    private String numero;
+
 
     public String getNumero() {
         return numero;
@@ -34,7 +36,7 @@ public class Endereco {
         this.numero = numero;
     }
 
-    private String cidade;
+
 
     public String getCidade() {
         return cidade;

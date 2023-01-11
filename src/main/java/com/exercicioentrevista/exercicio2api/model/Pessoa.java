@@ -13,7 +13,12 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
+    @NotNull
+    private Endereco endereco;
+    @NotNull
+    private int dataNascimento;
+    @NotNull
+    private String nome;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -26,9 +31,6 @@ public class Pessoa {
     public int hashCode() {
         return Objects.hash(getId());
     }
-
-    @NotNull
-    private String nome;
 
 
     public void setNome(String nome) {
@@ -46,10 +48,7 @@ public class Pessoa {
     public int getDataNascimento() {
         return dataNascimento;
     }
-    @NotNull
-    private Endereco endereco;
-    @NotNull
-    private int dataNascimento;
+
 
     public void setId(Long id) {
         this.id = id;
