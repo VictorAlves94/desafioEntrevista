@@ -4,6 +4,7 @@ package com.exercicioentrevista.exercicio2api.model;
 import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,12 +14,24 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "endereco_endid")
     @NotNull
-    private Endereco endereco;
+    private List<Endereco> endereco;
     @NotNull
     private int dataNascimento;
     @NotNull
     private String nome;
+
+    @NotNull
+    public List<Endereco> getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(@NotNull List<Endereco> endereco) {
+        this.endereco = endereco;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

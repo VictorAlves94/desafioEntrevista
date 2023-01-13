@@ -4,4 +4,7 @@ logadouro VARCHAR(50)NOT NULL,
 cep VARCHAR(20) NOT NULL,
 numero VARCHAR(50) NOT NULL,
 cidade VARCHAR(50)NOT NULL,
+codigo_pessoa BIGINT(20) NOT NULL,
+FOREIGN KEY (endId) REFERENCES endereco(endId),
+FOREIGN KEY (codigo_pessoa) REFERENCES pessoa(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
