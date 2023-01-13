@@ -4,6 +4,7 @@ package com.exercicioentrevista.exercicio2api.model;
 import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,12 +17,12 @@ public class Pessoa {
     private Long id;
     @OneToMany
     @JoinColumn(name = "endereco_id")
-
     private List<Endereco> endereco;
 
-    private int dataNascimento;
+    private LocalDate dataNascimento;
 
     private String nome;
+
 
     public Pessoa() {
     }
@@ -59,14 +60,14 @@ public class Pessoa {
     }
 
     public void setDataNascimento(int dataNascimento) {
-        this.dataNascimento = dataNascimento;
+        this.dataNascimento = LocalDate.ofEpochDay(dataNascimento);
     }
 
     public String getNome() {
         return nome;
     }
 
-    public int getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 

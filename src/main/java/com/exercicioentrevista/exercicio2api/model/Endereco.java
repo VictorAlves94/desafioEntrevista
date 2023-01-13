@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 
 
 @Entity
+@Table(name = "endereco")
 public class Endereco {
 
     @Id
