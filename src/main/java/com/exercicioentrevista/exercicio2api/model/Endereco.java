@@ -13,6 +13,11 @@ public class Endereco {
     @Column(name = "endId")
     private Long endId;
     private String logadouro;
+    private String cep;
+    private String numero;
+
+    private String cidade;
+
 
     public Endereco() {
     }
@@ -69,10 +74,6 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    private String cep;
-    private String numero;
-
-    private String cidade;
 
 
 
