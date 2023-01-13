@@ -14,16 +14,24 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "endereco_endid")
-    @NotNull
+    @OneToMany
+    @JoinColumn(name = "endereco_id")
+
     private List<Endereco> endereco;
-    @NotNull
+
     private int dataNascimento;
-    @NotNull
+
     private String nome;
 
-    @NotNull
+    public Pessoa() {
+    }
+
+    public Pessoa(Long id, List<Endereco> endereco) {
+        this.id = id;
+        this.endereco = endereco;
+    }
+
+
     public List<Endereco> getEndereco() {
         return endereco;
     }
@@ -63,9 +71,6 @@ public class Pessoa {
     }
 
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getId() {
         return id;

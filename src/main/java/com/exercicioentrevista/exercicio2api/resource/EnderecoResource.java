@@ -1,6 +1,7 @@
 package com.exercicioentrevista.exercicio2api.resource;
 
 import com.exercicioentrevista.exercicio2api.model.Endereco;
+import com.exercicioentrevista.exercicio2api.model.Pessoa;
 import com.exercicioentrevista.exercicio2api.repository.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,12 +27,13 @@ public class EnderecoResource {
         @PostMapping
         public Endereco criar(@RequestBody Endereco endereco) {
 
-            return enderecoRepository.save(new Endereco());
+            Pessoa pessoa_id = null;
+            return enderecoRepository.save(new Endereco(pessoa_id));
         }
 
         @PutMapping
         public Endereco atualizar(@RequestBody Endereco endereco) {
-            if (endereco.getEndId() > 0) {
+            if (endereco.getendereco_id() > 0) {
                 return enderecoRepository.save(endereco);
             }
             return endereco;

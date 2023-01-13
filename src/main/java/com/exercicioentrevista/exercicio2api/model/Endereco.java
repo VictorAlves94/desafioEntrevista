@@ -1,44 +1,59 @@
 package com.exercicioentrevista.exercicio2api.model;
 import jakarta.persistence.*;
 
-import java.util.Collections;
-import java.util.List;
 
 @Entity
-@Table
 public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "endId")
-    private Long endId;
+    @Column(name = "endereco_id")
+    private Long endereco_id;
+
+
     private String logadouro;
     private String cep;
     private String numero;
 
     private String cidade;
-
+    @ManyToOne
+    @JoinColumn(name = "pessoa_id")
+    private Pessoa pessoa_id;
 
     public Endereco() {
     }
 
-    public Long getEndId() {
-        return endId;
+    public Endereco(Pessoa pessoa_id) {
+        this.pessoa_id = pessoa_id;
     }
 
-    public Pessoa getCodigo_pessoa() {
-        return codigo_pessoa;
+
+    public Long getendereco_id() {
+        return endereco_id;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "pessoa_id")
-    public Pessoa codigo_pessoa;
-    public Endereco(Long endId, String logadouro, String cep, String numero, String cidade) {
-        this.endId = endId;
+
+
+    public Pessoa getpessoa_id() {
+        return pessoa_id;
+    }
+
+
+    public Long getEndereco_id() {
+        return endereco_id;
+    }
+
+    public Pessoa getPessoa_id() {
+        return pessoa_id;
+    }
+
+    public Endereco(Long endereco_id, String logadouro, String cep, String numero, String cidade, Pessoa pessoa_id) {
+        this.endereco_id = endereco_id;
         this.logadouro = logadouro;
         this.cep = cep;
         this.numero = numero;
         this.cidade = cidade;
+        this.pessoa_id = pessoa_id;
     }
 
     public String getLogadouro() {

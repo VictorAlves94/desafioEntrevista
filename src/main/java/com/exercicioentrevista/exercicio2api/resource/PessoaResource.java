@@ -37,7 +37,7 @@ public class PessoaResource {
     }
     @DeleteMapping
     public void deletar(@RequestBody Pessoa pessoa){
-        pessoaRepository.delete(pessoa);
+        pessoaRepository.deleteById(pessoa.getId());
 
     }
 
