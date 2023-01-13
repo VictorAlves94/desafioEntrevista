@@ -22,10 +22,6 @@ public class Endereco {
     public Endereco() {
     }
 
-    public static List<Object> findById(Long endId) {
-        return Collections.singletonList(endId);
-    }
-
     public Long getEndId() {
         return endId;
     }
@@ -34,6 +30,9 @@ public class Endereco {
         return codigo_pessoa;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "pessoa_id")
+    public Pessoa codigo_pessoa;
     public Endereco(Long endId, String logadouro, String cep, String numero, String cidade) {
         this.endId = endId;
         this.logadouro = logadouro;
@@ -77,9 +76,7 @@ public class Endereco {
 
 
 
-    @ManyToOne
-    @JoinColumn(name = "pessoa_id_id")
-    public Pessoa codigo_pessoa;
+
 
 
 
